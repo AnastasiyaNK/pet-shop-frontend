@@ -5,6 +5,7 @@ import CategoriesPage from "./pages/CategoriesPage/CategoriesPage";
 import AllProductsPage from "./pages/AllProductsPage/AllProductsPage";
 import AllSalesPage from "./pages/AllSalesPage/AllSalesPage";
 import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
+import { ROUTES } from "./utils/routes";
 
 
 function App() {
@@ -13,12 +14,12 @@ function App() {
     <div>
       <Layout>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/categories" element={<CategoriesPage />} />
-          <Route path="/products" element={<AllProductsPage />} />
-          <Route path="/sales" element={<AllSalesPage />} />
-          <Route path="/shopping" element={<ShoppingCart />} />
-          <Route path="/products/:productId" element={<ShoppingCart />} />
+          <Route path={ROUTES.HOME} element={<HomePage />} />
+          <Route path={ROUTES.CATEGORIES} element={<CategoriesPage />} />
+          <Route path={ROUTES.PRODUCTS} element={<AllProductsPage />} />
+          <Route path={ROUTES.SALES} element={<AllSalesPage />} />
+          <Route path={ROUTES.SHOPPING} element={<ShoppingCart />} />
+          <Route path={`${ROUTES.PRODUCTS}/:productId`} element={<ShoppingCart />} />
         </Routes>
       </Layout>
     </div>

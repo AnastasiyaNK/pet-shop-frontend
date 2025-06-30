@@ -7,7 +7,7 @@ const Hero = () => {
         <section className={css.hero}>
           <div className={css.heroContent}>
             <h1 className={css.heroTitle}>
-              Amazing Discounts o Pets Products!
+              Amazing Discounts <br/> on Pets Products!
             </h1>
             <button className={css.heroButton}>Check out</button>
           </div>
