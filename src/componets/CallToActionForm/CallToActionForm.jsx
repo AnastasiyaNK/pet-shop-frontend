@@ -72,16 +72,22 @@ const CallToActionForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
       <input {...register("name")} placeholder="Name" className={css.input} />
-      {errors.name?.message && <p>{errors.name.message}</p>}
+      {errors.name?.message && (
+        <p className={css.errors}>{errors.name.message}</p>
+      )}
       <input
         {...register("phone")}
         onChange={formatPhoneInput}
         placeholder="Phone number"
         className={css.input}
       />
-      {errors.phone?.message && <p>{errors.phone.message}</p>}
+      {errors.phone?.message && (
+        <p className={css.errors}>{errors.phone.message}</p>
+      )}
       <input {...register("email")} placeholder="Email" className={css.input} />
-      {errors.email?.message && <p>{errors.email.message}</p>}
+      {errors.email?.message && (
+        <p className={css.errors}>{errors.email.message}</p>
+      )}
       <button className={css.button} type="submit">
         Get a discount
       </button>
