@@ -63,28 +63,7 @@ const AllProductsPage = () => {
               </li>
             );
           })}
-          {/* {products.map((product) => (
-            <li key={product.id} className={css.item}>
-              <div className={css.discountsWrapp}>
-                <img
-                  className={css.img}
-                  src={`http://localhost:3333${product.image}`}
-                  alt="dog"
-                />
-                <div className={css.discounts}>-{product.discont_price}%</div>
-              </div>
-
-              <div className={css.cardWrapp}>
-                <h3 className={css.itemTitle}>{product.title} </h3>
-                <div className={css.priceWrapp}>
-                  <span className={css.price}>$ {product.price}</span>
-                  <span className={css.pricesale}>
-                    $ {product.discont_price}
-                  </span>
-                </div>
-              </div>
-            </li>
-          ))} */}
+         
         </ul>
       </div>
     </section>

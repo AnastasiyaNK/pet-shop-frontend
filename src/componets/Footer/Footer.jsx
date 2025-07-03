@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <footer className={css.footer}>
       <div className={css.container}>
-        <h2 className={css.secondTitle}>Categoris</h2>
+        <h2 className={css.secondTitle}>Contact</h2>
         <div className={css.parent}>
           <div className={css.div1}>
             <h4 className={css.infoTitle}>Phone</h4>
