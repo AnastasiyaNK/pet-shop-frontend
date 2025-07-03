@@ -38,19 +38,6 @@ const Categories = () => {
               <h3 className={css.itemTitleCateries}>{category.title}</h3>
             </li>
           ))}
-
-          {/* <li className={css.itemCateries}>
-            <img className={css.imgCateries} src={dogImg} alt="dog" />
-            <h3 className={css.itemTitleCateries}>Dry & Wet Food</h3>
-          </li>
-          <li className={css.itemCateries}>
-            <img className={css.imgCateries} src={dogImg} alt="dog" />
-            <h3 className={css.itemTitleCateries}>Dry & Wet Food</h3>
-          </li>
-          <li className={css.itemCateries}>
-            <img className={css.imgCateries} src={dogImg} alt="dog" />
-            <h3 className={css.itemTitleCateries}>Dry & Wet Food</h3>
-          </li> */}
         </ul>
       </div>
     </section>
