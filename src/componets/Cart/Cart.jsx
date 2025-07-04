@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import css from "./Cart.module.css";
 import removeImg from "../../assets/images/ic-x.svg";
-import minusImg from "../../assets/images/minus.svg";
-import plusImg from "../../assets/images/plus .svg";
+
+
 import dogImg from "../../assets/images/dog.jpg";
-import CallToActionForm from "../CallToActionForm/CallToActionForm";
 import OrderForm from "../OrderForm/OrderForm";
+import QuantityControls from "../ui/QuantityControls/QuantityControls";
 
 const Cart = () => {
+    const [quantity, setQuantity] = useState(1);
+
+  const handleIncrement = () => setQuantity(prev => prev + 1);
+  const handleDecrement = () => setQuantity(prev => Math.max(1, prev - 1));
   return (
-    <div className={css.container}>
-      <div className={css.productsSection}>
+    <div className={css.productsSection}>
+      <div>
         <ul className={css.list}>
           <li className={css.item}>
             <div className={css.imgWrapp}>
@@ -19,15 +23,11 @@ const Cart = () => {
             <div className={css.details}>
               <h4 className={css.detailsTitle}>BELCANDO Dog Food</h4>
               <div className={css.test}>
-                <div className={css.quantityControls}>
-                  <button className={css.quantityBtn}>
-                    <img src={minusImg} alt="minus" />
-                  </button>
-                  <span className={css.quantityValue}>2</span>
-                  <button className={css.quantityBtn}>
-                    <img src={plusImg} alt="plus" />
-                  </button>
-                </div>
+                <QuantityControls
+                  quantity={quantity}
+                  onIncrement={handleIncrement}
+                  onDecrement={handleDecrement}
+                />
                 <div className={css.pricing}>
                   <span className={css.discountedPrice}>$ 46</span>
                   <span className={css.price}>$ 34</span>
@@ -47,15 +47,11 @@ const Cart = () => {
             <div className={css.details}>
               <h4 className={css.detailsTitle}>BELCANDO Dog Food</h4>
               <div className={css.test}>
-                <div className={css.quantityControls}>
-                  <button className={css.quantityBtn}>
-                    <img src={minusImg} alt="minus" />
-                  </button>
-                  <span className={css.quantityValue}>2</span>
-                  <button className={css.quantityBtn}>
-                    <img src={plusImg} alt="plus" />
-                  </button>
-                </div>
+                <QuantityControls
+                  quantity={quantity}
+                  onIncrement={handleIncrement}
+                  onDecrement={handleDecrement}
+                />
                 <div className={css.pricing}>
                   <span className={css.discountedPrice}>$ 46</span>
                   <span className={css.price}>$ 34</span>
@@ -75,15 +71,11 @@ const Cart = () => {
             <div className={css.details}>
               <h4 className={css.detailsTitle}>BELCANDO Dog Food</h4>
               <div className={css.test}>
-                <div className={css.quantityControls}>
-                  <button className={css.quantityBtn}>
-                    <img src={minusImg} alt="minus" />
-                  </button>
-                  <span className={css.quantityValue}>2</span>
-                  <button className={css.quantityBtn}>
-                    <img src={plusImg} alt="plus" />
-                  </button>
-                </div>
+                <QuantityControls
+                  quantity={quantity}
+                  onIncrement={handleIncrement}
+                  onDecrement={handleDecrement}
+                />
                 <div className={css.pricing}>
                   <span className={css.discountedPrice}>$ 46</span>
                   <span className={css.price}>$ 34</span>

@@ -1,0 +1,48 @@
+.quantityControls {
+  display: inline-flex;
+  align-items: center;
+  height: 40px; 
+  border-radius: 6px;
+  overflow: hidden; 
+}
+
+.quantityBtn {
+  width: 40px;
+  height: 100%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s;
+}
+
+.quantityBtn:hover {
+  background: #f5f5f5;
+}
+
+.quantityBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantityBtn img {
+  width: 16px;
+  height: 16px;
+}
+
+.quantityValue {
+  width: 50px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  font-weight: 600;
+  font-size: 16px;
+  color: #282828;
+  background: white;
+}

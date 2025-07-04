@@ -1,10 +1,10 @@
 import React from 'react'
-import css from './NotFound.module.css'
-import { Link } from 'react-router-dom'
-import notFaundImg from '../../assets/images/404.png'
-import { ROUTES } from '../../utils/routes'
+import css from './NotFoundPage.module.css'
+import notFaundImg from "../../assets/images/404.png";
+import { ROUTES } from "../../utils/routes";
+import { Link } from 'react-router-dom';
 
-const NotFound = () => {
+const NotFoundPage = () => {
   return (
     <section className={css.notFound}>
       <div className={css.container}>
@@ -15,11 +15,13 @@ const NotFound = () => {
             We’re sorry, the page you requested could not be found. Please go
             back to the homepage.
           </p>
-          <Link className={css.link} to={ROUTES.MAIN}>Go Home</Link>
+          <Link className={css.link} to={ROUTES.MAIN}>
+            Go Home
+          </Link>
         </div>
       </div>
     </section>
   );
 }
 
-export default NotFound
+export default NotFoundPage

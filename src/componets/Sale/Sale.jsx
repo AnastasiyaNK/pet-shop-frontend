@@ -14,10 +14,10 @@ const Sale = () => {
      .slice(0, 4);
   
   
-   const calculateDiscountPercent = (price, discont_price) => {
-     return Math.round(((price - discont_price) / price) * 100);
+   const calculateDiscountPercent = (price, discontPrice) => {
+     if (!discontPrice) return 0;
+     return Math.round(((price - discontPrice) / price) * 100);
    };
-  
 
 
   return (

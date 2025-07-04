@@ -60,11 +60,13 @@ export const fetchProductByAId = createAsyncThunk(
 const INITIAL_STATE = {
   categories: {
     all: [],
+    current: null,
     isLoading: false,
     error: null,
   },
   products: {
     all: [],
+    byCategory: [],
     isLoading: false,
     error: null,
   },
@@ -93,17 +95,22 @@ const petSlice = createSlice({
 
         .addCase(fetchCategoryById.pending, (state) => {
           state.categories.isLoading = true;
+          state.products.isLoading = true;
           state.categories.error = null;
         })
         .addCase(fetchCategoryById.fulfilled, (state, action) => {
           state.categories.isLoading = false;
-          state.categories.all = action.payload;
+          state.products.isLoading = false;
+          state.categories.current = action.payload.category;
+          state.products.byCategory = state.products.all.filter( product => product.categoryId === Number(action.payload.category.id))
+        
         })
         .addCase(fetchCategoryById.rejected, (state, action) => {
           state.categories.isLoading = false;
+          state.products.isLoading = false;
           state.categories.error = action.payload;
         })
-
+      
         // ---------- productsAll ---------- //
 
         .addCase(fetchProductsAll.pending, (state) => {
@@ -127,6 +134,7 @@ const petSlice = createSlice({
         .addCase(fetchProductByAId.fulfilled, (state, action) => {
           state.categories.isLoading = false;
           state.products.all = action.payload;
+          state.products.byCategory = action.payload;
         })
         .addCase(fetchProductByAId.rejected, (state, action) => {
           state.products.isLoading = false;

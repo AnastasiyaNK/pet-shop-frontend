@@ -3,10 +3,12 @@ import css from './AllProductsPage.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { selectProducts } from '../../redux/selectors';
 import { fetchProductsAll } from '../../redux/petSlice';
+import Loader from '../../componets/Loader/Loader';
 
 const AllProductsPage = () => {
   const dispatch = useDispatch()
   const products = useSelector(selectProducts)
+  // const isLoading = useSelector(selectProductsLoading)
 
   useEffect(() => {
     dispatch(fetchProductsAll())
@@ -17,6 +19,10 @@ const AllProductsPage = () => {
      if (!discontPrice) return 0;
      return Math.round(((price - discontPrice) / price) * 100);
    };
+  
+    // if (isLoading) {
+    //   return <Loader />;
+    // }
   return (
     <section className={css.product}>
       <div className={css.container}>

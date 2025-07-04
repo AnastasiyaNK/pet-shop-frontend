@@ -1,8 +1,7 @@
 import React from 'react'
 import css from './ShoppingCart.module.css'
 import { ROUTES } from '../../utils/routes';
-import { Link } from 'react-router-dom';
-import NotFound from '../../componets/NotFound/NotFound';
+
 import Cart from '../../componets/Cart/Cart';
 
 const ShoppingCart = () => {
