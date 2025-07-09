@@ -15,9 +15,9 @@
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   position: relative;
+  width: 100%;
 }
-.imgWrapp {
-}
+
 .img {
   max-width: 200px;
   max-height: 180px;
@@ -25,6 +25,7 @@
 }
 .details {
   padding: 32px;
+      flex-grow: 1;
 }
 .detailsTitle {
   font-weight: 500;
@@ -32,6 +33,7 @@
   line-height: 1.3;
   color: #282828;
   margin-bottom: 32px;
+  padding-right: 40px;
 }
 .test {
   display: flex;
@@ -57,18 +59,20 @@
   color: #8b8b8b;
 }
 
-.removeBtnWrapp {
-}
+
 .removeBtn {
   background: none;
   border: none;
   cursor: pointer;
   padding: 5px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
 }
-.removeImg {
-}
+
 .orderSummarySection {
   display: flex;
+
   
    
 }
@@ -79,6 +83,7 @@
   border-radius: 12px;
   padding: 32px;
   max-width: 548px;
+  width: 100%;
 }
 .summaryTitle {
   font-weight: 700;
@@ -108,4 +113,16 @@
   font-size: 64px;
   line-height: 1.1;
   color: #282828;
+}
+
+.rightContainer{
+    flex-grow: 1;
+    flex-basis: auto;
+    flex-shrink: 1;
+}
+.leftContainer{
+  flex-grow: 1;
+    flex-basis: auto;
+    flex-shrink: 1;
+
 }

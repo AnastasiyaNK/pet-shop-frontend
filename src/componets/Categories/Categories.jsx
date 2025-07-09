@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectCategories, selectCategoriesLoading } from '../../redux/selectors';
 import { fetchCategoriesAll } from '../../redux/petSlice';
 import { PulseLoader } from 'react-spinners';
+import PrimaryLink from '../ui/PrimaryLink/PrimaryLink';
 
 const Categories = () => {
   const dispatch = useDispatch()
@@ -38,9 +39,7 @@ const Categories = () => {
         <div className={css.titleWrapp}>
           <h2 className={css.secondTitle}>Categoris</h2>
           <div className={css.devider}></div>
-          <Link className={css.primaryLink} to={ROUTES.CATEGORIES}>
-            All categories
-          </Link>
+          <PrimaryLink to={ROUTES.CATEGORIES}>All categories</PrimaryLink>
         </div>
         <ul className={css.listCateries}>
           {displayedCategories.map((category) => (

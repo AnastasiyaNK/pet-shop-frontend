@@ -1,105 +1,96 @@
-import React, { useState } from "react";
 import css from "./Cart.module.css";
 import removeImg from "../../assets/images/ic-x.svg";
 
-
-import dogImg from "../../assets/images/dog.jpg";
 import OrderForm from "../OrderForm/OrderForm";
 import QuantityControls from "../ui/QuantityControls/QuantityControls";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectCartItems,
+  selectTotalAmount,
+  selectTotalQuantity,
+} from "../../redux/selectors";
+import { removeItemFromCart, updateItemQuantity } from "../../redux/cartSlice";
 
-const Cart = () => {
-    const [quantity, setQuantity] = useState(1);
+export const Cart = () => {
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
+  const totalQuantity = useSelector(selectTotalQuantity);
+  const totalAmount = useSelector(selectTotalAmount);
 
-  const handleIncrement = () => setQuantity(prev => prev + 1);
-  const handleDecrement = () => setQuantity(prev => Math.max(1, prev - 1));
   return (
     <div className={css.productsSection}>
-      <div>
+      <div className={css.leftContainer}>
         <ul className={css.list}>
-          <li className={css.item}>
-            <div className={css.imgWrapp}>
-              <img className={css.img} src={dogImg} alt="" />
-            </div>
-            <div className={css.details}>
-              <h4 className={css.detailsTitle}>BELCANDO Dog Food</h4>
-              <div className={css.test}>
-                <QuantityControls
-                  quantity={quantity}
-                  onIncrement={handleIncrement}
-                  onDecrement={handleDecrement}
-                />
-                <div className={css.pricing}>
-                  <span className={css.discountedPrice}>$ 46</span>
-                  <span className={css.price}>$ 34</span>
-                </div>
-              </div>
-            </div>
-            <div className={css.removeBtnWrapp}>
-              <button className={css.removeBtn}>
-                <img className={css.removeImg} src={removeImg} alt="" />
-              </button>
-            </div>
-          </li>
-          <li className={css.item}>
-            <div className={css.imgWrapp}>
-              <img className={css.img} src={dogImg} alt="" />
-            </div>
-            <div className={css.details}>
-              <h4 className={css.detailsTitle}>BELCANDO Dog Food</h4>
-              <div className={css.test}>
-                <QuantityControls
-                  quantity={quantity}
-                  onIncrement={handleIncrement}
-                  onDecrement={handleDecrement}
-                />
-                <div className={css.pricing}>
-                  <span className={css.discountedPrice}>$ 46</span>
-                  <span className={css.price}>$ 34</span>
-                </div>
-              </div>
-            </div>
-            <div className={css.removeBtnWrapp}>
-              <button className={css.removeBtn}>
-                <img className={css.removeImg} src={removeImg} alt="" />
-              </button>
-            </div>
-          </li>
-          <li className={css.item}>
-            <div className={css.imgWrapp}>
-              <img className={css.img} src={dogImg} alt="" />
-            </div>
-            <div className={css.details}>
-              <h4 className={css.detailsTitle}>BELCANDO Dog Food</h4>
-              <div className={css.test}>
-                <QuantityControls
-                  quantity={quantity}
-                  onIncrement={handleIncrement}
-                  onDecrement={handleDecrement}
-                />
-                <div className={css.pricing}>
-                  <span className={css.discountedPrice}>$ 46</span>
-                  <span className={css.price}>$ 34</span>
-                </div>
-              </div>
-            </div>
-            <div className={css.removeBtnWrapp}>
-              <button className={css.removeBtn}>
-                <img className={css.removeImg} src={removeImg} alt="" />
-              </button>
-            </div>
-          </li>
+          {cartItems.map(
+            ({ id, image, title, discont_price, price, quantity }) => {
+              return (
+                <li key={id} className={css.item}>
+                  <div className={css.imgWrapp}>
+                    <img
+                      className={css.img}
+                      src={`http://localhost:3333${image}`}
+                      alt=""
+                    />
+                  </div>
+                  <div className={css.details}>
+                    <h4 className={css.detailsTitle}>{title}</h4>
+                    <div className={css.test}>
+                      <QuantityControls
+                        quantity={quantity}
+                        onIncrement={() =>
+                          dispatch(
+                            updateItemQuantity({
+                              id,
+                              newQuantity: quantity + 1,
+                            })
+                          )
+                        }
+                        onDecrement={() =>
+                          dispatch(
+                            updateItemQuantity({
+                              id,
+                              newQuantity: quantity - 1,
+                            })
+                          )
+                        }
+                      />
+                      {discont_price ? (
+                        <div className={css.pricing}>
+                          <span className={css.discountedPrice}>
+                            $ {discont_price}
+                          </span>
+                          <span className={css.price}>$ {price}</span>
+                        </div>
+                      ) : (
+                        <div className={css.pricing}>
+                          <span className={css.discountedPrice}>$ {price}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={() => dispatch(removeItemFromCart(id))}
+                    className={css.removeBtn}
+                  >
+                    <img className={css.removeImg} src={removeImg} alt="" />
+                  </button>
+                </li>
+              );
+            }
+          )}
         </ul>
       </div>
-      <div>
+      <div className={css.rightContainer}>
         <div className={css.orderSummarySection}>
           <div className={css.orderSummary}>
             <h3 className={css.summaryTitle}>Order details</h3>
             <p className={css.itemsCount}>
-              <span className={css.itemsCount}>3</span>items
+              <span className={css.itemsCount}>{totalQuantity}</span>items
             </p>
             <div className={css.totalContainer}>
               <p className={css.itemsCount}>Total</p>
-              <p className={css.amount}>$ 97,20</p>
+              <p className={css.amount}>$ {totalAmount}</p>
             </div>
             <OrderForm />
           </div>
@@ -108,5 +99,3 @@ const Cart = () => {
     </div>
   );
 };
-
-export default Cart;

@@ -34,34 +34,53 @@
   margin-bottom: 30px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
-.heroButton {
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: white;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.link{
+  text-decoration: none;
 }
-
-
-
 
 @media (max-width: 768px) {
   .hero {
-    height: 500px;
+    min-height: 450px;
+    background-position: 60% center;
+  }
+  
+  .heroContent {
+    padding: 0 30px;
   }
   
   .heroTitle {
-    font-size: 2.2rem;
+    font-size: 36px;
+    margin-bottom: 25px;
   }
   
   .heroButton {
     padding: 12px 25px;
-    font-size: 1rem;
+    font-size: 16px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 350px;
+    background-position: 70% center;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding-bottom: 40px;
+  }
+  
+  .heroContent {
+    padding: 0 20px;
+  }
+  
+  .heroTitle {
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  }
+  
+  .heroButton {
+    padding: 10px 20px;
+    font-size: 16px;
   }
 }

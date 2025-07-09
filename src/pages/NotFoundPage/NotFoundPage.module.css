@@ -45,3 +45,65 @@ text-align: center;
 color: #fff;
 
 }
+.link:hover {
+  background: #0039cb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(13, 80, 255, 0.25);
+}
+
+@media (max-width: 768px) {
+  .notFound {
+    padding: 60px 0 30px;
+  }
+  
+  .container {
+    padding: 0 30px;
+  }
+  
+  .wrapp {
+    gap: 24px;
+  }
+  
+  .title {
+    font-size: 48px;
+  }
+  
+  .text {
+    font-size: 18px;
+  }
+  
+  .link {
+    padding: 14px 48px;
+    font-size: 18px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .notFound {
+    padding: 40px 0 20px;
+
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+  
+  .wrapp {
+    gap: 16px;
+  }
+  
+  .title {
+    font-size: 36px;
+  }
+  
+  .text {
+    font-size: 16px;
+  }
+  
+  .link {
+    padding: 12px 40px;
+    font-size: 16px;
+    max-width: 180px;
+  }
+}

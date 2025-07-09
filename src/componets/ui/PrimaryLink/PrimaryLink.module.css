@@ -1,0 +1,14 @@
+.primaryLink {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 8px 16px;
+  color: #ddd;
+  min-width: 142px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.primaryLink:hover, .primaryLink:focus{
+color: #282828;
+}

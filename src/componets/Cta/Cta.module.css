@@ -8,7 +8,6 @@
   width: 100%;
 }
 .card {
-  /* background: linear-gradient(220deg, #2451c6 0%, #0d50ff 100%); */
   border-radius: 12px;
   padding: 32px;
   background-image: url(../../assets/images/cta-pets.png), linear-gradient(220deg, #2451c6 0%, #0d50ff 100%);
@@ -27,4 +26,47 @@
 .formWrapp {
   display: flex;
   justify-content: end;
+}
+
+@media (max-width: 768px) {
+  .cta {
+    padding: 40px 0;
+  }
+  
+  .card {
+    
+    padding: 24px;
+    background-image: linear-gradient(220deg, #2451c6 0%, #0d50ff 100%);
+
+  }
+  
+  .titleCta {
+    font-size: 48px;
+    margin-bottom: 32px;
+  }
+   .formWrapp {
+    justify-content: center;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .cta {
+    padding: 32px 0;
+  }
+  
+  .card {
+    padding: 24px;
+    background-image: linear-gradient(220deg, #2451c6 0%, #0d50ff 100%);
+  }
+  
+  .titleCta {
+    font-size: 36px;
+    margin-bottom: 24px;
+  }
+   .formWrapp {
+    justify-content: center;
+  }
+  
+  
 }

@@ -1,5 +1,8 @@
 import React from 'react'
 import css from './Hero.module.css'
+import { Link } from 'react-router-dom';
+import Button from '../ui/Button/Button';
+import { ROUTES } from '../../utils/routes';
 
 const Hero = () => {
     return (
@@ -7,9 +10,12 @@ const Hero = () => {
         <section className={css.hero}>
           <div className={css.heroContent}>
             <h1 className={css.heroTitle}>
-              Amazing Discounts <br/> on Pets Products!
+              Amazing Discounts <br /> on Pets Products!
             </h1>
-            <button className={css.heroButton}>Check out</button>
+            <Link className={css.link} to={ROUTES.SALES}>
+              <Button>Check out</Button>
+            </Link>
+
           </div>
         </section>
       </div>

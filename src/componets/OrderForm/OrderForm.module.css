@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  
 }
 .input {
   border: 1px solid #ddd;
@@ -21,7 +20,7 @@
 .errors {
   font-size: 16px;
   line-height: 1.3;
-   color: rgb(223, 124, 4);
+  color: rgb(223, 124, 4);
   margin-bottom: 8px;
 }
 .button {
@@ -43,3 +42,11 @@
   background-color: #282828;
   color: #fff;
 }
+.modalText {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.1;
+  color: #fff;
+}
+
+

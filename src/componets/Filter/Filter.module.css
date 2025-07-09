@@ -1,0 +1,36 @@
+.filterSection {
+  padding: 16px;
+  margin-bottom: 24px;
+}
+.filterGroup {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-right: 32px;
+}
+.label {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.3;
+  color: #282828;
+}
+
+.priceInputs {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ant-input {
+  text-align: center;
+}
+
+
+.ant-select {
+  margin-left: 8px;
+}
+
+.customCheckbox {
+  margin-left: 8px;
+}
+

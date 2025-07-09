@@ -60,3 +60,70 @@ color: #fff;
 max-width: 313px;
 
 }
+
+
+@media (max-width: 768px) {
+  .shoppingCart {
+    padding: 30px 0 40px;
+  }
+  
+  .container {
+    padding: 0 30px;
+  }
+  
+  .secondTitle {
+    font-size: 48px;
+    margin-right: 24px;
+  }
+  
+  .titleWrapp {
+    padding-bottom: 30px;
+  }
+  
+  .text {
+    font-size: 18px;
+  }
+  
+  .shoppingLink {
+    padding: 14px 48px;
+    font-size: 18px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .shoppingCart {
+    padding: 20px 0 30px;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+  
+  .titleWrapp {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    gap: 16px;
+  }
+  
+  .secondTitle {
+    font-size: 36px;
+    margin-right: 0;
+  }
+  
+  .devider {
+    display: none;
+  }
+  
+  .text {
+    font-size: 16px;
+  }
+  
+  .shoppingLink {
+    padding: 12px 40px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 280px;
+  }
+}

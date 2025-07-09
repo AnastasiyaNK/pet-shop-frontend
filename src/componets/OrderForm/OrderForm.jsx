@@ -1,8 +1,9 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import css from "./OrderForm.module.css";
+import { Modal } from "antd";
 
 const schema = yup
   .object({
@@ -41,6 +42,15 @@ const OrderForm = () => {
     },
     resolver: yupResolver(schema),
   });
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+   const handleCancel = () => {
+     setIsModalOpen(false);
+   };
 
   const onSubmit = (data) => console.log(data);
 
@@ -87,9 +97,24 @@ const OrderForm = () => {
       {errors.email?.message && (
         <p className={css.errors}>{errors.email.message}</p>
       )}
-      <button className={css.button} type="submit">
+      <button onClick={showModal} className={css.button} type="submit">
         Order
       </button>
+      <Modal
+        type="primary"
+        title="Congratulations!"
+        closable={{ "aria-label": "Custom Close Button" }}
+        open={isModalOpen}
+        onCancel={handleCancel}
+        footer={null}
+      >
+        <p className={css.modalText}>
+          Your order has been successfully placed on the website.
+        </p>
+        <p className={css.modalText}>
+          A manager will contact you shortly to confirm your order.
+        </p>
+      </Modal>
     </form>
   );
 };

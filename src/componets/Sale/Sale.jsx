@@ -2,10 +2,12 @@ import React from "react";
 import css from "./Sale.module.css";
 import { ROUTES } from "../../utils/routes";
 
-import { Link } from "react-router-dom";
+
 import CardProduct from "../CardProduct/CardProduct";
 import { useSelector } from "react-redux";
 import { selectProducts } from "../../redux/selectors";
+import PrimaryLink from "../ui/PrimaryLink/PrimaryLink";
+import { calculateDiscountPercent } from "../../utils/helpers";
 
 const Sale = () => {
   const allProducts = useSelector(selectProducts);
@@ -14,11 +16,7 @@ const Sale = () => {
      .slice(0, 4);
   
   
-   const calculateDiscountPercent = (price, discontPrice) => {
-     if (!discontPrice) return 0;
-     return Math.round(((price - discontPrice) / price) * 100);
-   };
-
+ 
 
   return (
     <section className={css.sale}>
@@ -26,9 +24,7 @@ const Sale = () => {
         <div className={css.titleWrapp}>
           <h2 className={css.secondTitle}>Sale</h2>
           <div className={css.devider}></div>
-          <Link className={css.primaryLink} to={ROUTES.SALES}>
-            All sales
-          </Link>
+          <PrimaryLink to={ROUTES.SALES}>All sales</PrimaryLink>
         </div>
         <ul className={css.listSale}>
           {saleProducts.map(({ id, image, title, discont_price, price }) => {

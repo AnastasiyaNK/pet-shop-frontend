@@ -8,9 +8,23 @@ import { ROUTES } from "./utils/routes";
 import MainPage from "./pages/MainPage/MainPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import CategoryProduct from "./componets/CategoryProduct/CategoryProduct";
+import ProductById from "./componets/ProductById/ProductById";
+import { useDispatch} from "react-redux";
+import { useEffect } from "react";
+import { fetchProductsAll } from "./redux/petSlice";
+
 
 
 function App() {
+   const dispatch = useDispatch();
+  
+
+  
+
+   useEffect(() => {
+     dispatch(fetchProductsAll());
+   }, [dispatch]);
+
 
   return (
     <div>
@@ -24,7 +38,7 @@ function App() {
           <Route path={ROUTES.SHOPPING} element={<ShoppingCart />} />
           <Route
             path={`${ROUTES.PRODUCTS}/:productId`}
-            element={<ShoppingCart />}
+            element={<ProductById />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

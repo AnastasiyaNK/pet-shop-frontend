@@ -1,13 +1,13 @@
 .quantityControls {
   display: inline-flex;
   align-items: center;
-  height: 40px; 
+  height: 58px; 
   border-radius: 6px;
   overflow: hidden; 
 }
 
 .quantityBtn {
-  width: 40px;
+  width: 58px;
   height: 100%; 
   display: flex;
   align-items: center;
@@ -34,7 +34,7 @@
 }
 
 .quantityValue {
-  width: 50px;
+  width: 96px;
   height: 100%;
   display: flex;
   align-items: center;

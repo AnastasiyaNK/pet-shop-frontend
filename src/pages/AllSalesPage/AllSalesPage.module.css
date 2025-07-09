@@ -11,7 +11,7 @@
   font-size: 64px;
   line-height: 1.1;
   color: #282828;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .list {
@@ -21,4 +21,44 @@
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .sale {
+    padding: 30px 0 40px;
+  }
+  
+  .container {
+    padding: 0 30px;
+  }
+  
+  .secondTitle {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  .list {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sale {
+    padding: 20px 0 30px;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+  
+  .secondTitle {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+  
+  .list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
