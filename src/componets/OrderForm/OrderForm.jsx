@@ -1,9 +1,10 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import css from "./OrderForm.module.css";
-import { Modal } from "antd";
+import closeImg from "../../assets/images/close-x.svg";
+
 
 const schema = yup
   .object({
@@ -34,6 +35,7 @@ const OrderForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     defaultValues: {
       name: "",
@@ -44,15 +46,29 @@ const OrderForm = () => {
   });
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
 
-   const handleCancel = () => {
+  const onSubmit = (data) => {
+    console.log(data);
+    setIsModalOpen(true);
+    reset();
+  }
+
+   const closeModal = () => {
      setIsModalOpen(false);
    };
 
-  const onSubmit = (data) => console.log(data);
+   useEffect(() => {
+     const handleKeyDown = (e) => {
+       if (e.key === "Escape") {
+         closeModal();
+       }
+     };
+
+     if (isModalOpen) {
+       document.addEventListener("keydown", handleKeyDown);
+       return () => document.removeEventListener("keydown", handleKeyDown);
+     }
+   }, [isModalOpen]);
 
   const formatPhoneInput = (e) => {
     let value = e.target.value.replace(/\D/g, ""); // Видаляємо всі не-цифри
@@ -97,24 +113,30 @@ const OrderForm = () => {
       {errors.email?.message && (
         <p className={css.errors}>{errors.email.message}</p>
       )}
-      <button onClick={showModal} className={css.button} type="submit">
+      <button className={css.button} type="submit">
         Order
       </button>
-      <Modal
-        type="primary"
-        title="Congratulations!"
-        closable={{ "aria-label": "Custom Close Button" }}
-        open={isModalOpen}
-        onCancel={handleCancel}
-        footer={null}
-      >
-        <p className={css.modalText}>
-          Your order has been successfully placed on the website.
-        </p>
-        <p className={css.modalText}>
-          A manager will contact you shortly to confirm your order.
-        </p>
-      </Modal>
+
+      {isModalOpen && (
+        <div className={css.modalOverlay} onClick={closeModal}>
+          <div
+            className={css.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h4 className={css.modalTitle}>Congratulations! </h4>
+            <button className={css.closeButton} onClick={closeModal}>
+              <img src={closeImg} alt="Close" />
+            </button>
+
+            <p className={css.modalText}>
+              Your order has been successfully placed on the website.
+            </p>
+            <p className={css.modalText}>
+              A manager will contact you shortly to confirm your order.
+            </p>
+          </div>
+        </div>
+      )}
     </form>
   );
 };
